@@ -2,38 +2,33 @@
   <v-container fluid grid-list-xl>
     <v-layout wrap align-center>
       <v-progress-linear :indeterminate="loader" v-if="loader"></v-progress-linear>
-      <v-flex xs12 sm12>
+      <div class="header-panel">
         <v-select
           v-model="requestType"
           :items="requestTypes"
+          :ripple="false"
+          class="top-selector"
           label="Select Request Type"
           value="popular"
+          append-icon="more_vert"
+          menu-props="offsetY"
+          hide-details
+          solo
+          flat
+          light
           item-text="name"
           item-value="value"
           @change="changeRequestType"
         ></v-select>
-      </v-flex>
-      <v-flex xs12 sm4 v-for="movie in results" :key="movie.id">
-        <v-card>
-          <v-img v-if="movie.backdrop_path"
-            :src="`${imageUrl}${movie.backdrop_path}`"
-          ></v-img>
-          <v-img v-if="!movie.backdrop_path && movie.poster_path"
+      </div>
+      <v-flex xs6 sm4 pa-0 v-for="movie in results" :key="movie.id">
+        <v-card :to="`/movies/${movie.id}`">
+          <v-img v-if="movie.poster_path"
             :src="`${imageUrl}${movie.poster_path}`"
           ></v-img>
-
-          <v-card-title primary-title>
-            <div>
-              <h3 class="headline mb-0">{{movie.title}} <span v-if="movie.title !== movie.original_title">({{movie.original_title}} /{{movie.original_language}}/)</span></h3>
-              <h4>Release Date: {{movie.release_date}}</h4>
-              <div> {{ movie.overview }} </div>
-              <h4>Average Vote: {{ movie.vote_average }} </h4>
-            </div>
-          </v-card-title>
-
-          <v-card-actions>
-            <v-btn flat color="orange" :to="`/movies/${movie.id}`">Explore</v-btn>
-          </v-card-actions>
+          <v-img v-if="!movie.poster_path && movie.backdrop_path"
+            :src="`${imageUrl}${movie.backdrop_path}`"
+          ></v-img>
         </v-card>
       </v-flex>
       <v-flex xs12 sm6 offset-sm3 v-if="page !== totalPages && results.length > 0">

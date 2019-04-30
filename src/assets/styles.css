@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons');
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.header-panel {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    min-height: 62px;
+    padding: 6px 15px;
+}
+
+.header-panel p {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.sub-header-panel {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #009787;
+    color: #fff;
+    min-height: 78px;
+    padding: 10px 15px;
+}
+.sub-header-panel h3 {
+    font-weight: 300;
+}
+
+.top-selector {
+
+}
+.top-selector .v-input__slot {
+    background: #000 !important;
+}
+
+.top-selector .v-select__selections {
+    color: #fff !important;
+    font-size: 20px;
+}
+
+.top-selector .v-icon {
+    color: #fff !important;
+}
+
+.def-btn {
+    min-width: auto;
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.def-btn i {
+    color: #fff !important;
+}
+
+
+.release-date {
+    color: #999;
+    font-weight: 300;
+    font-size: 23px;
+}
+
+.vote-txt {
+    color: #000;
+    font-weight: 500;
+    font-size: 13px;
+    margin: 4px 0;
+}
+
+.desc-txt {
+    color: #999;
+    font-weight: 400;
+    font-size: 13px;
+}
